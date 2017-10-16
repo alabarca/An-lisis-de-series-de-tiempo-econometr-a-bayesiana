@@ -1,0 +1,5 @@
+library(astsa)
+plot(diff(diff(log(jj),4)))
+acf2(diff(diff(log(jj)),4))
+sarima(log(jj),1,1,0,1,1,0,4)
+sarima.for(log(jj),4,1,1,0,1,1,0,4)

@@ -1,0 +1,181 @@
+\documentclass[12pt,legalpaper]{report}
+\usepackage[dvips]{graphicx} \usepackage[ansinew]{inputenc}
+\usepackage{euler} \usepackage{epsfig} \usepackage{amssymb}
+\usepackage{amscd} \usepackage{amsthm}\usepackage{eucal}
+\usepackage{amsmath}
+\usepackage[left=0.5cm,top=1cm,right=0.5cm,bottom=0.5cm]{geometry}
+%\oddsidemargin -1.5cm \textwidth 19cm \topmargin -2.75cm \leftmargin
+%-5cm \textheight 30cm \parindent 2em \parskip 2ex
+\newcommand{\est}{\displaystyle} \newcommand{\sen}{\mathop{\rm
+sen}\nolimits} \newcommand{\arcsec}{\mathop{\rm arcsec}\nolimits}
+\newcommand{\cotan}{\mathop{\rm cotan}\nolimits}
+\newcommand{\sgn}{\mathop{\rm sgn}\nolimits}
+\newcommand{\dom}{\mathop{\rm Dom}\nolimits}
+\newcommand{\codim}{\mathop{\rm codim}\nolimits}
+\newcommand{\ran}{\mathop{\rm ran}\nolimits}
+\newcommand{\arcsen}{\mathop{\rm arcsen}\nolimits}
+\newcommand{\cosec}{\mathop{\rm cosec}\nolimits}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\ZZ}{\mathbb{Z}}\newcommand{\lv}{\textbf v}
+\newcommand{\lu}{\textbf u}
+\newcommand{\lx}{\textbf x}
+\newcommand{\ls}{\textbf s}
+\newcommand{\ly}{\textbf y}
+\newcommand{\Int}{\textbf{Int}}
+\newcommand{\Id}{\textrm{id}}
+ \newcommand{\pp}{\mathbb{P}}
+\newcommand{\mf}{\mathfrak}\newcommand{\mc}{\mathcal}
+\renewcommand{\proofname}{Soluci\'on}
+
+\theoremstyle{plain} \newtheorem{teo}{Teorema}[chapter]
+\newtheorem{pro}[teo]{Proposici\'on} \newtheorem{lemma}[teo]{Lema}
+\newtheorem{corollary}[teo]{Corolario}
+\newtheorem{axio}[teo]{Axioma}
+
+
+\theoremstyle{definition} \newtheorem{Def}[teo]{Definici\'on}
+\newtheorem{example}[teo]{Ejemplo}
+\pagestyle{empty}
+\begin{document}
+\begin{figure}[h]\vspace{-0.5cm}
+\begin{minipage}{2cm}
+\includegraphics[height=1in]{ucv1.eps}
+\end{minipage}\hspace{3.5cm}\begin{minipage}{9.5cm}
+\begin{center}
+\textbf{Universidad Central de Venezuela\\Facultad de
+Ciencias\\Postgrado Modelos Aleatorios\\Estad\'istica I}
+\end{center}
+\end{minipage}\hspace{0.9cm}\begin{minipage}{2cm}
+\includegraphics[height=0.7in]{matem.eps}
+\end{minipage}
+\end{figure}\vspace{-1cm}
+\begin{center}
+\begin{tabular}{|c|}
+  \hline
+\vspace{-0.4cm}\\
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  \textrm{{\large{$\est\underset{Elaborado\,por\, Alejandro\,\, Labarca}{\textbf{\textrm{Entrega de ejercicios}}}$}}}
+
+  \\\hline
+  \end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+
+\noindent\textbf{Pregunta 1.}\,\, Calcular la funci\'on generadora de momentos de una variable aleatoria $X\sim N(\mu,\sigma^{2})$. Considere el caso particular $\mu=0$ y $\sigma^{2}=1$.
+\begin{proof}
+Como $X\sim N(\mu,\sigma^{2})$, su funci\'on de densidad de probabilidad viene dada por \begin{equation*}
+\displaystyle f(x)=\frac{1}{\sigma\sqrt{2\pi}}\exp\left\{\frac{-(x-\mu)^{2}}{2\sigma^{2}}\right\}.
+\end{equation*}
+N\'otese que, si consideramos el cambio
+\begin{equation*}
+y=\frac{x-\mu}{\sigma\sqrt{2}}
+\end{equation*}
+entonces,
+\begin{equation*}
+dy=\frac{dx}{\sigma\sqrt{2}}.
+\end{equation*}
+Por consiguiente, utilizando el teorema del cambio de variable,
+\begin{equation}\label{1}
+\displaystyle\int_{-\infty}^{\infty}f(x)\,dx=
+\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}\exp\left\{-\frac{(x-\mu)^{2}}{2\sigma^{2}}\right\}\,dx
+=\frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-y^{2}}\,dy.
+\end{equation}
+Veamos ahora que,
+\begin{equation*}
+\displaystyle\int_{-\infty}^{\infty}e^{-x^{2}}\,dx=1.
+\end{equation*}
+En efecto, por el teorema de Fubini,
+\begin{equation}\label{2}
+\left(\displaystyle\int_{-\infty}^{\infty}e^{-x^{2}}\,dx\right)
+\left(\displaystyle\int_{-\infty}^{\infty}e^{-y^{2}}\right)
+=\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}e^{-y^{2}}\right)e^{-y^{2}}\,dy
+=\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}e^{-(x^{2}+y^{2})}\right)\,dy
+=\int\int_{\mathbb{R}^{2}}e^{-(x^{2}+y^{2})}\,dx\,dy.
+\end{equation}
+Ahora, practicamos un cambio de variable en coordenadas polares, esto es,
+\begin{equation*}
+x=r\cos(\theta),\quad y=r\sin(\theta);\quad \text{con $r>0$ y $\theta\in[0,2\pi)$.}
+\end{equation*}
+As\'i, por el teorema del Cambio de Variable,
+\begin{equation*}
+\int\int_{\mathbb{R}^{2}}e^{-(x^{2}+y^{2})}\,dx\,dy.
+=\int_{0}^{2\pi}\int_{0}^{\infty}re^{-r^{2}}\,dr\,d\theta
+=\pi.
+\end{equation*}
+Luego, sustituyendo en $(\ref{2})$,
+\begin{equation*}
+\left(\displaystyle\int_{-\infty}^{\infty}e^{-x^{2}}\,dx\right)^{2}
+=\left(\displaystyle\int_{-\infty}^{\infty}e^{-x^{2}}\,dx\right)
+\left(\displaystyle\int_{-\infty}^{\infty}e^{-y^{2}}\,dy\right)=\pi.
+\end{equation*}
+de donde,
+\begin{equation*}
+\displaystyle\int_{-\infty}^{\infty}e^{-x^{2}}\,dx=\sqrt{\pi}
+\end{equation*}
+De modo que, sustituyendo en (\ref{1}),
+\begin{equation}\label{3}
+\displaystyle\int_{-\infty}^{\infty}f(x)\,dx=1.
+\end{equation}
+Calculemos ahora la funci\'on generadora de momentos de $X$.\\
+Dado que,
+\begin{equation}\label{4}
+M_{X}(t)=\mathbb{E}(e^{tx})=\int_{-\infty}^{\infty}e^{tx}f(x)\,dx
+=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}\exp\left\{tx-\frac{(x-\mu)^{2}}{2\sigma^{2}}\right\}\,dx
+\end{equation}
+donde,
+\begin{align*}
+tx-\frac{(x-\mu)^{2}}{2\sigma^{2}}
+=tx - t^{2}\frac{\sigma^{2}}{2}+t^{2}\frac{\sigma^{2}}{2}+\mu t-\mu t- \frac{(x-\mu)^{2}}{2\sigma^{2}}
+&=\mu t +t^{2}\frac{\sigma^{2}}{2}-\left[\mu t+ t^{2}\frac{\sigma^{2}}{2}+ \frac{(x-\mu)^{2}}{2\sigma^{2}} - tx \right]
+\\&=\mu t +t^{2}\frac{\sigma^{2}}{2}-\left[\frac{2\sigma^{2}\mu t+t^{2}\sigma^{4}+(x-\mu)^{2}-2\sigma^{2}tx}{2\sigma^{2}}\right]
+\\&=\mu t +t^{2}\frac{\sigma^{2}}{2}-\left[\frac{2\sigma^{2}\mu t+t^{2}\sigma^{4}+x^{2}-2x\mu+\mu^{2}-2\sigma^{2}tx}{2\sigma^{2}}\right]
+\\&=\mu t +t^{2}\frac{\sigma^{2}}{2}-\left[\frac{x^{2}-2(\mu x+\sigma^{2}tx)+(\mu^{2}+2\sigma^{2}\mu t+t^{2}\sigma^{4})}{2\sigma^{2}}\right]
+\\&=\mu t +t^{2}\frac{\sigma^{2}}{2}-\left[\frac{x^{2}-2x(\mu +\sigma^{2}t)+(\mu+\sigma^{2}t)^{2}}{2\sigma^{2}}\right]
+\\&=\mu t +t^{2}\frac{\sigma^{2}}{2}-\frac{\left[x-(\mu+\sigma^{2}t)\right]^{2}}{{2\sigma^{2}}}
+\end{align*}
+Entonces, sustituyendo en (\ref{4})
+\begin{align*}
+\displaystyle M_{X}(t)&=\frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{\infty}\exp\left\{tx-\frac{(x-\mu)^{2}}{2\sigma^{2}}\right\}\,dx
+\\&=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}\exp\left\{\mu t+\frac{t^{2}\sigma^{2}}{2}-\frac{\left[x-(\mu+\sigma^{2}t)\right]^{2}}{{2\sigma^{2}}}\right\}\,dx
+\\&=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}\exp\left\{\mu t+\frac{t^{2}\sigma^{2}}{2}\right\}\exp\left\{-\frac{\left[x-(\mu+\sigma^{2}t)\right]^{2}}{{2\sigma^{2}}}\right\}\,dx
+\\&=\frac{1}{\sigma\sqrt{2\pi}}\exp\left\{\mu t+\frac{t^{2}\sigma^{2}}{2}\right\}\int_{-\infty}^{\infty}\exp\left\{-\frac{\left[x-(\mu+\sigma^{2}t)\right]^{2}}{{2\sigma^{2}}}\right\}\,dx
+\\&{\stackrel{\ref{3}}{=}}\frac{1}{\sigma\sqrt{2\pi}}\exp\left\{\mu t+\frac{t^{2}\sigma^{2}}{2}\right\}
+\end{align*}
+esto es,
+\begin{equation*}
+M_{X}(t)=\frac{1}{\sigma\sqrt{2\pi}}\exp\left\{\mu t + \frac{t^{2}\sigma^{2}}{2}\right\}
+\end{equation*}
+En el caso particular que $\mu=0$ y $\sigma^{2}=1$,
+\begin{equation*}
+\mu_{X}(t)=\frac{1}{\sqrt{2\pi}}\exp\left\{\frac{1}{2}t^{2}\right\}
+\end{equation*}
+\end{proof}
+
+
+\vspace{1cm}
+\noindent\textbf{Pregunta 2.}\,\, Si $X_{1},...,X_{n}$ son variables aleatorias independientes con distribuci\'on $N(\mu,\sigma^{2})$, calcular la distribuci\'on $\bar{X}$
+\begin{proof}
+Sea $X_{1},...,X_{n}$ variables aleatorias independientes con distribuci\'on $N(\mu,\sigma^{2})$.\\
+N\'otese que,
+\begin{equation*}
+\displaystyle \mathrm{M}_{\bar{X}}(t)=\prod_{i=1}^{n}M_{X_{i}}(t/n)=n\mathrm{M}_{X_{1}}(t/n).
+\end{equation*}
+Por consiguiente,
+\begin{equation*}
+\mathrm{M}_{\bar{X}}(t)=n\mathrm{M}_{X_{1}}(t/n)=n\exp\left\{\mu\frac{t}{n}+\frac{1}{2}\frac{t^{2}}{n^{2}}\sigma^{2}\right\}
+=\exp\left\{n\left(\mu\frac{t}{n}+\frac{1}{2}\frac{t^{2}}{n^{2}}\sigma^{2}\right)\right\}
+=\exp\left\{\mu t+\frac{1}{2}\frac{t^{2}}{n}\sigma^{2}\right\}
+\end{equation*}
+de donde,
+\begin{equation*}
+\bar{X}\sim N(\mu,\sigma^{2}/n).
+\end{equation*}
+\end{proof}
+\end{document}
